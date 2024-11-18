@@ -56,3 +56,23 @@ La partition "SWAP" et bien activé.
  ![image7.png](https://github.com/Baudwild/TSSR-Checkpoint-1/blob/272f35492ba0544ca464c6678706d55b562c5793/Image%20Gestion%20du%20stockage/Image7.png)
 
  Partions Ok
+
+## 1.2 Montage
+
+### Montage partitions du disque /dev/sdb1 :
+- mkdir /mnt/data 
+- mount -t ext4 /dev/sdb1 /mnt/data
+- df -h
+
+![image8.png](https://github.com/Baudwild/TSSR-Checkpoint-1/blob/main/Image%20Montage/Image8.png)
+
+sdb1 et bien monté sur data.
+
+### Modification du fichier /etc/fstab :
+- lsblk -f
+
+![image9.png](https://github.com/Baudwild/TSSR-Checkpoint-1/blob/main/Image%20Montage/Image9.png)
+
+- nano /etc/fstab
+
+![image10.png](https://github.com/Baudwild/TSSR-Checkpoint-1/blob/main/Image%20Montage/Image10.png)
