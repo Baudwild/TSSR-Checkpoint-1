@@ -2,11 +2,13 @@
 
 # Demande le nom de l'utilisateur
 read -p "Entrez le nom d'utilisateur à créer :" user
+
 #vérification de l'existence de l’utilisateur dans le système 
 if cat /etc/passwd | grep $user > /dev/null; 
 then
 echo "l'utilisateur $user existe déjà !"
 else
+
 #Création de l’utilisateur
 if useradd $user
 then
