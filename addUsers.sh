@@ -1,22 +1,17 @@
 #!/bin/bash
 
-#Création utilisateur
-useradd : $user
-sudo adduser $user
-
-#vérification de la présence d'arguments
-If
-Then 
-echo "Il manque les noms d'utilisateurs en argument - Fin du script"
-
+# Demande le nom de l'utilisateur
+read -p "Entrez le nom d'utilisateur à créer :" user
 #vérification de l'existence de l’utilisateur dans le système 
-If  $user /etc/passwd
-Then
-echo"L'utilisateur $user existe déjà"
-
-#vérification de création de l’utilisateur
-If
-echo "L'utilisateur $user a été crée"
+if cat /etc/passwd | grep $user > /dev/null; 
 then
-	echo "Erreur à la création de l'utilisateur $user"
+echo "l'utilisateur $user existe déjà !"
+else
+#Création de l’utilisateur
+if useradd $user
+then
+echo "L'utilisateur $user a été crée"
+else
+echo "Erreur à la création de l'utilisateur $user"
+fi
 fi
